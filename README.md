@@ -16,16 +16,15 @@ and also wanted to be able to advance to next challenge/validate code from withi
 To use the script, you have to : 
   * start the chromium browser with remote debugging enabled 
   * use only one tab in the browser window, where you want to synchronize the code to / from 
-which mens you will need a dedicated chromium instance and will 
+which means you will need a dedicated chromium instance and will 
 have to use another browser instance for browsing.
 
 As an alternative, you might be interested in the following browser extensions : 
 [GhostText](https://github.com/GhostText/GhostText), [It's All Text!](https://github.com/docwhat/itsalltext)
 
-
 Installation 
 ------------
-Instal required python modules :
+Install required python modules :
 ```bash
 $ sudo pip3 install chromote watchdog argparse
 ```
@@ -66,6 +65,33 @@ $ /path/to/script/browser-code-sync.py syncfolder ~/Desktop ~/Desktop/f1.html ~/
 ```
 will synchronize files _f1.html_, _f2.css_ and _f3.js_ with the contents of the 1st, 2nd and 3rd _CodeMirror_ editor found in your browser window. 
 On first run the script will pull the contents from the browser into the files. When files change on disk, the contents will be pushed to the browser.
+
+### Manual code push / pull 
+To use the script from another code editor, bind the appropriate keys to the push / pull commands.
+For example
+```bash 
+$ /path/to/script/browser-code-sync.py push filename 2
+```
+pushes the contents of file _filename_ into the 2nd CodeMirror editor open in the browser, and
+```bash 
+$ /path/to/script/browser-code-sync.py pull filename 1
+```
+pulls the contents of the 1st CodeMirror editor open in the browser into the file _filename_.
+
+Screencasts
+-----------
+Click on the images to enlarge.
+Some key presses are missing.
+
+### Freecodecamp 
+![Freecodecamp: completing a challenge](./images/freecodecamp.gif)
+
+### Vim: manual mode
+![Vim: manual mode](./images/vim-manual-sync.gif)
+
+### Vim: automatic sync 
+![Vim: folder sync](./images/vim-folder-sync.gif)
+
 
 Platforms 
 ---------
